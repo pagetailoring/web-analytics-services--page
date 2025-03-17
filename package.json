@@ -1,23 +1,45 @@
 {
   "name": "web-analytics-services--page",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "build": "nuxi build --dotenv .env.production",
+    "dev": "nuxi dev --dotenv .env.local",
+    "host": "nuxi dev --dotenv .env.local --host",
+    "generate": "nuxi generate --dotenv .env.production",
+    "development": "nuxi generate --dotenv .env.development && scp -rp -P 41556 .output/public/. kvzbeoc@sshcloud.cluster024.hosting.ovh.net:~/_dev",
+    "preview": "nuxi preview --dotenv .env.production",
+    "postinstall": "nuxi prepare --dotenv .env.production",
+    "analyze": "nuxi analyze",
+    "clean": "nuxi cleanup && rm -R node_modules",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "up": "nuxi upgrade",
+    "upgrade": "nuxi upgrade"
   },
   "dependencies": {
     "@nuxt/eslint": "1.2.0",
     "@nuxt/fonts": "0.11.0",
     "@nuxt/scripts": "0.11.2",
+    "@nuxtjs/html-validator": "2.1.0",
+    "@nuxtjs/robots": "5.2.8",
+    "@nuxtjs/sitemap": "7.2.9",
     "@unhead/vue": "^2.0.0-rc.8",
+    "@vueuse/nuxt": "13.0.0",
     "eslint": "^9.0.0",
     "nuxt": "^3.16.0",
+    "nuxt-capo": "0.2.0",
+    "nuxt-payload-analyzer": "^0.1.4",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-prettier": "^5.2.3",
+    "prettier": "^3.5.3",
+    "sass": "^1.85.1",
+    "typescript": "^5.8.2",
+    "vue-tsc": "^3.0.0-alpha.2"
   }
 }

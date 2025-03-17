@@ -5,6 +5,18 @@
 .nitro
 .cache
 dist
+.firebase
+.npmrc
+
+# temp
+temp.vue
+app/components/dev/
+*__dev*
+
+# images
+works
+works-no-shadow
+_ipx
 
 # Node dependencies
 node_modules
@@ -22,3 +34,4 @@ logs
 .env
 .env.*
 !.env.example
+!.env.local
